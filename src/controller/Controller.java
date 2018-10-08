@@ -3,7 +3,7 @@ package controller;
 //Import Section
 import model.School;
 import javax.swing.JOptionPane;
-
+import java.util.ArrayList;
 public class Controller
 {
 	private School userSchool;
@@ -30,6 +30,8 @@ public class Controller
 		while(programContinue)
 		{
 		//------------------------Student Section--------------------------------------------------------------------------
+		// verifies if they qualify for the questionnaire
+			
 		int userInputStudent = JOptionPane.showConfirmDialog(null, "Are you a student?");
 	
 		if (userInputStudent == JOptionPane.YES_OPTION)
@@ -41,7 +43,7 @@ public class Controller
 				userInputSchool = JOptionPane.showInputDialog(null, "Please enter what school you go to.");
 			}
 			userSchool.setSchool(userInputSchool);
-			
+		// sets input as a capital	
 			boolean capital = true;
 			
 			while(capital) {
@@ -150,4 +152,23 @@ public class Controller
 		}
 		return isValid;
 	}
+	
+	private void list()
+	{
+	while(true)
+	{
+		ArrayList<String> SchoolList = new ArrayList<String>();
+		//creates an array called school list
+		SchoolList.add("your mom");
+		SchoolList.add("nothing");
+		SchoolList.remove("your mom");
+		
+		
+	}
+}	
+	
+	
+	
+	
+	
 }
