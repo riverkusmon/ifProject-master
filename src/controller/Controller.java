@@ -22,6 +22,7 @@ public class Controller
 	public void start()
 	{
 		questions();
+		list();
 	}		
 	
 	private void questions()
@@ -45,30 +46,33 @@ public class Controller
 			userSchool.setSchool(userInputSchool);
 		// sets input as a capital	
 			boolean capital = true;
-			
+			int userCapital = JOptionPane.showConfirmDialog(null, "is it ok if I clean that up for you");
 			while(capital) {
-				
-				if(userSchool.equals ("jordan"))	
-					
-			{
-				
 			
-				int userCapital = JOptionPane.showConfirmDialog(null, "is it ok if I capitalize it for you");
+				
 				
 				if (userCapital == JOptionPane.YES_OPTION)
 				{
-					userSchool.setSchool("Jordan");
+					
+					userInputSchool = userInputSchool.substring(0,1).toUpperCase() + userInputSchool.substring(1).toLowerCase();
+					
 				}
 				
+				else {
+					
+				}
 
 				capital = false;
+				userSchool.setSchool(userInputSchool);
+			}
 			
-			}
-			}
 			//---------------------------------------------------------------------------------------------------------------
 			//
 			//------------------------Classes Section--------------------------------------------------------------------------
-			
+			/**
+			 * this makes it to where you have to enter an integer and will keep looping if you don't
+			 * this allows you to reenter as well until the !validint is false
+			 */
 			String userInputClasses = JOptionPane.showInputDialog(null, "How many classes do you have");
 			while(!validInt(userInputClasses) || userInputClasses == null || userInputClasses.equals(""))
 			{
@@ -110,7 +114,7 @@ public class Controller
 			
 			
 		    //-------------------------Final Print Section---------------------------------------------------------------------
-			for (int loop = 2; loop >= 0; loop -= 1)
+		for (int loop = 2; loop >= 0; loop -= 1)
 			{
 				JOptionPane.showMessageDialog(null,  userSchool);
 				
@@ -136,7 +140,12 @@ public class Controller
 		}
 	}
 }
-	
+	/**
+	 *this next method makes it to where the program doesn't crash if you put in invalid input.
+	 *it also makes it to where it lets you reenter so that you can put in a valid int 
+	 *
+	 * 
+	 */
 	public boolean validInt(String maybeInt)
 	{
 		boolean isValid = false;
@@ -153,6 +162,9 @@ public class Controller
 		return isValid;
 	}
 	
+	/**
+	 * this is just a simple list so that you can call different students from a school possibly.
+	 */
 	private void list()
 	{
 	while(true)
